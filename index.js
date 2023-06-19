@@ -23,10 +23,10 @@ mongoose.connect('mongodb://localhost:27017/ncxRecorder', {
     .catch((err) => console.error('Failed to connect to MongoDB', err));
 
 
-const appId = "";
-const appSecret = "";
-const appToken = "";
-const tableId = "";
+const appId = "cli_a4ba544859f8900d";
+const appSecret = "4m5FvfleR8r6N55zMqzYJeQKAhYmCFzI";
+const appToken = "EV2ZbNZqNanfVRsSH4gcfSHKnyg";
+const tableId = "tbla7Med3RvKSBml";
 
 async function main() {
     // Use the csvParser to parse the file and get the orders
@@ -49,4 +49,12 @@ async function saveOrders(orders) {
     }
 }
 
-main();
+// main();
+
+
+exports.handler = async function (event, context, callback) {
+
+    console.log("LOGI-TRACK SERVICE STARTED");
+    await main();
+    callback(null, "LOGI-TRACK SERVICE STARTED COMPLETED");
+};
